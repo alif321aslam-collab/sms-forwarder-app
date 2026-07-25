@@ -2,7 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.smsforwarder">
 
-    <!-- SMS পড়ার এবং ইন্টারনেটে পাঠানোর পারমিশন -->
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -11,7 +10,14 @@
         android:label="bKash Forwarder"
         android:supportsRtl="true">
         
-        <!-- ব্যাকগ্রাউন্ডে মেসেজ রিসিভ করার লজিক -->
+        <!-- এটি অ্যাপের মেইন পেজ চালু করবে -->
+        <activity android:name=".MainActivity" android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
         <receiver android:name=".SmsReceiver" android:exported="true">
             <intent-filter>
                 <action android:name="android.provider.Telephony.SMS_RECEIVED" />

